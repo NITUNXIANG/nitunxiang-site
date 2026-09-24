@@ -1,0 +1,7 @@
+.ntx-global-footer{width:100%;margin:0;padding:0;background:#111;color:#f3f0e8;border:0}
+.ntx-global-footer .ntx-footer-bar{height:54px;margin:0;padding:0;display:flex;align-items:center;justify-content:space-evenly;gap:0;border-top:1px solid rgba(243,240,232,.28);font-family:"NTX Big Caslon","NTX Source Han","Big Caslon Local","Source Han Serif SC",serif;font-size:9px;font-weight:400;line-height:1;letter-spacing:.025em;text-transform:uppercase}
+.ntx-global-footer .ntx-footer-bar>*{display:flex;align-items:center;justify-content:center;min-width:0;text-align:center;white-space:nowrap}
+.ntx-global-footer .ntx-footer-bar>i{color:rgba(243,240,232,.55);font:inherit;font-style:normal}
+.ntx-global-footer a{color:inherit;text-decoration:none;transition:color .18s ease}
+.ntx-global-footer a:hover,.ntx-global-footer a:focus-visible,.ntx-global-footer a:active{color:#c97f12}
+@media(max-width:760px){.ntx-global-footer .ntx-footer-bar{height:48px;font-size:6px;letter-spacing:0}.ntx-global-footer .ntx-footer-bar>i{font-size:7px}}

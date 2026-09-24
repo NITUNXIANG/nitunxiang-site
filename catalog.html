@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="泥吞象 NITUNXIANG 产品目录" />
+  <title>Catalog — 泥吞象 NITUNXIANG</title>
+  <link rel="stylesheet" href="catalog.css" />
+  <link rel="stylesheet" href="brand-theme.css?v=66" />
+  <link rel="stylesheet" href="brand-cursor.css?v=2">
+  <link rel="stylesheet" href="public-site.css?v=1" />
+</head>
+<body class="catalog-page">
+  <header class="catalog-header">
+    <button class="mobile-menu" type="button" aria-label="打开菜单" data-menu>Menu</button>
+    <nav class="nav-left" data-nav><a class="active" href="catalog.html">Shop</a><a href="index.html#works">Collections</a><a href="index.html#about">About</a></nav>
+    <a class="catalog-brand" href="index.html">泥吞象 NITUNXIANG</a>
+    <nav class="nav-right"><a href="articles.html">Articles</a><a href="media.html">Images / Film</a><button aria-label="搜索">⌕</button><button aria-label="收藏">♡</button><button aria-label="购物袋">Bag <sup data-bag-count>0</sup></button></nav>
+  </header>
+
+  <main>
+    <div class="catalog-title"><p>Edition 01—26</p><h1>Catalog</h1><p data-result-count>09 objects</p></div>
+    <div class="catalog-toolbar">
+      <div class="categories" role="tablist" aria-label="产品分类">
+        <button class="active" data-category="all">全部 <sup>72</sup></button>
+        <button data-category="yiyou">一游 YIYOU <sup>48</sup></button>
+        <button data-category="eryou">二游 ERYOU <sup>24</sup></button>
+        <button data-category="group">套组 <sup>39</sup></button>
+        <button data-category="single">单体 <sup>33</sup></button>
+      </div>
+      <button class="sort" type="button" data-sort>Position ↑</button>
+    </div>
+    <section class="product-grid" aria-live="polite" data-product-grid></section>
+    <nav class="pagination" aria-label="分页"><button class="active">1</button><button>2</button><button>3</button><span>…</span><button>7</button><button aria-label="下一页">→</button></nav>
+  </main>
+
+  <footer class="catalog-footer"><span>© 2026 泥吞象 NITUNXIANG</span><a href="index.html">Return to editorial site ↗</a><span>Shanghai · Paris</span></footer>
+
+  <dialog class="quick-view" data-dialog>
+    <button class="dialog-close" type="button" data-dialog-close aria-label="关闭">×</button>
+    <img data-dialog-image alt="" />
+    <div><p data-dialog-label></p><h2 data-dialog-name></h2><p class="dialog-copy" data-dialog-copy></p><div class="dialog-buy"><strong data-dialog-price></strong><button type="button" data-add-bag>Add to bag</button></div></div>
+  </dialog>
+  <button class="sku-editor-launch" type="button" data-sku-editor-launch>✦ 修改商品</button>
+  <aside class="sku-editor" data-sku-editor aria-hidden="true">
+    <div class="sku-editor-head"><strong>Catalog 编辑器</strong><button type="button" data-sku-editor-close aria-label="关闭">×</button></div>
+    <p class="sku-editor-tip">开启后点击任意商品，再修改名称、价格、规格或图片。</p>
+    <label class="sku-editor-switch"><input type="checkbox" data-sku-edit-mode> 开启选择商品</label>
+    <p class="sku-selected" data-sku-selected>当前商品：尚未选择</p>
+    <label>商品页面编号（独立移动）<input type="number" min="1" max="72" step="1" data-sku-position disabled></label>
+    <label>商品名称<input type="text" data-sku-name disabled></label>
+    <label>价格（人民币）<input type="number" min="0" step="1" data-sku-price disabled></label>
+    <label>规格与说明<textarea rows="4" data-sku-spec disabled></textarea></label>
+    <button class="sku-image-button" type="button" data-sku-image disabled>替换当前商品图片</button>
+    <input class="sku-image-input" type="file" accept="image/*" data-sku-image-input>
+    <div class="sku-editor-actions"><button type="button" data-sku-apply disabled>应用当前修改</button><button type="button" data-sku-save>保存全部修改</button></div>
+    <button class="sku-reset" type="button" data-sku-reset>恢复价目表原始内容</button>
+    <p class="sku-editor-status" data-sku-status>修改保存在当前浏览器中</p>
+  </aside>
+  <script src="catalog.js?v=3"></script>
+  <script src="content-bilingual.js?v=2"></script>
+  <script src="mobile-nav-feedback.js?v=3"></script>
+  <script src="mobile-text-editor.js?v=2"></script>
+  <script src="brand-cursor.js?v=2"></script>
+  <script src="global-footer.js?v=1"></script>
+</body>
+</html>
+
+

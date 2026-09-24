@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "NTX Chinese Serif";
+  src: local("Source Han Serif SC"),local("Noto Serif CJK SC"),local("Songti SC"),local("SimSun");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2E80-2EFF, U+3000-303F, U+31C0-31EF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE30-FE4F, U+FF00-FFEF;
+}
+
+@font-face {
+  font-family: "NTX Source Han Full";
+  src: local("Source Han Serif SC"),local("Noto Serif CJK SC"),local("Songti SC"),local("SimSun");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 中文字符使用思源宋；拉丁字符继续使用各页面原有风格。 */
+.home-page, .home-page button, .home-page input, .home-page textarea, .home-page select {
+  font-family: "NTX Chinese Serif", "DM Sans", Arial, sans-serif;
+}
+.home-page .manifesto-copy, .home-page .about-copy h2, .home-page .journal-item h3, .home-page .footer-top > a {
+  font-family: "NTX Chinese Serif", "Instrument Serif", Georgia, serif;
+}
+.catalog-page, .catalog-page button, .catalog-page input, .catalog-page textarea, .catalog-page select {
+  font-family: "NTX Chinese Serif", Arial, sans-serif;
+}
+.catalog-page .catalog-title h1, .catalog-page .product-material, .catalog-page .dialog-copy, .catalog-page .quick-view h2 {
+  font-family: "NTX Chinese Serif", "Adobe Caslon Pro Local", "Times New Roman", serif;
+}
+.detail-page, .detail-page button, .detail-page input, .detail-page textarea, .detail-page select {
+  font-family: "NTX Chinese Serif", Arial, sans-serif;
+}
+.detail-page .product-detail h1, .detail-page .product-spec, .detail-page .product-notes p {
+  font-family: "NTX Chinese Serif", "Adobe Caslon Pro Local", "Times New Roman", serif;
+}
+
+/* Catalog 商品名：恢复纯黑、醒目的视觉。 */
+.catalog-page .product-info h2 {
+  color: #000;
+  font-family: "NTX Chinese Serif", "Songti SC", serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* 商品详情页：中文与拉丁字符都统一由思源宋体显示。 */
+.detail-page,
+.detail-page button,
+.detail-page input,
+.detail-page textarea,
+.detail-page select,
+.detail-page .product-detail h1,
+.detail-page .product-spec,
+.detail-page .product-notes p {
+  font-family: "NTX Source Han Full", "NTX Chinese Serif", "Songti SC", serif;
+}
+

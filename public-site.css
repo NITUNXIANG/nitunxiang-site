@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "NTX Source Han";
+  src: local("Source Han Serif SC"), local("Noto Serif CJK SC"), local("Songti SC"), local("SimSun");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.editor-launch,
+.editor-panel,
+.article-editor-launch,
+.article-editor,
+.mobile-text-editor-launch,
+.mobile-text-editor,
+.gallery-editor-launch,
+.gallery-editor,
+.sku-editor-launch,
+.sku-editor,
+.variant-editor-launch,
+.variant-editor {
+  display: none !important;
+}
