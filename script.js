@@ -17,7 +17,7 @@ document.querySelectorAll('[data-gene-toggle]').forEach((button)=>button.addEven
 }));
 
 const imagePool = [
-  'assets/products/sku-01.webp',
+  'assets/published-data/e327979d9a9935866da41174.jpg',
   'assets/products/sku-02.webp',
   'assets/products/sku-03.webp',
   'assets/products/sku-04.webp',
