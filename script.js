@@ -706,7 +706,8 @@ if(manifestoCopyForAlignment){
   new MutationObserver(syncManifestoEyebrowTop).observe(manifestoCopyForAlignment,{childList:true,subtree:true,characterData:true});
   window.addEventListener('resize',syncManifestoEyebrowTop);
 }
-loadInitialState().finally(() => { window.syncHomeArticle?.();syncManifestoEyebrowTop(); document.documentElement.classList.remove('state-loading'); });
+const revealHomeWhenReady=()=>new Promise((resolve)=>{const active=heroCarouselHost?.querySelector('.carousel-slide.is-active'),source=active?.style.backgroundImage.match(/^url\(["']?(.*?)["']?\)$/i)?.[1];if(!source){resolve();return}const image=new Image(),finish=()=>resolve();image.onload=finish;image.onerror=finish;image.src=source;if(image.complete&&image.naturalWidth)finish();setTimeout(finish,4000)});
+loadInitialState().finally(async() => { window.syncHomeArticle?.();syncManifestoEyebrowTop();await revealHomeWhenReady();requestAnimationFrame(()=>document.documentElement.classList.remove('state-loading')); });
 
 document.querySelector('form')?.addEventListener('submit', (event) => { event.preventDefault(); const input = event.currentTarget.querySelector('input'); if (input?.value) { input.value = ''; input.placeholder = 'THANK YOU — SUBSCRIBED'; } });
 if(!document.querySelector('script[data-shared-language-notice]')){const sharedNoticeScript=document.createElement('script');sharedNoticeScript.src='language-notice.js?v=1';sharedNoticeScript.dataset.sharedLanguageNotice='';document.head.append(sharedNoticeScript);}
