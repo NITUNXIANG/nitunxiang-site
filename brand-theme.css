@@ -33,7 +33,7 @@ body,button,input,textarea,select{font-family:"DM Sans","NTX Source Han",Arial,s
 .home-page .nav-mobile-zh,.home-page .nav-mobile-en{display:none}
 
 /* Home imagery and editorial rhythm */
-.home-page .hero{background:#e9e5dc}.home-page .hero-media{background-image:url("assets/products/sku-01.webp");background-position:center;background-size:cover}.home-page .hero-media>.carousel-slide{background-position:center;background-size:cover}.home-page .hero-shade{background:linear-gradient(0deg,rgba(0,0,0,.32),transparent 48%)}
+.home-page .hero{background:#e9e5dc}.home-page .hero-media{background-image:none;background-position:center;background-size:cover}.home-page .hero-media>.carousel-slide{background-position:center;background-size:cover}.home-page .hero-shade{background:linear-gradient(0deg,rgba(0,0,0,.32),transparent 48%)}
 .home-page .hero h1{font-family:"NTX Big Caslon","NTX Source Han",serif;letter-spacing:-.045em}.home-page .hero-copy>p,.home-page .hero-kicker,.home-page .hero-index{letter-spacing:.08em}.home-page .hero .text-link{border-color:rgba(255,255,255,.7)}
 .home-page .eyebrow{color:var(--ink)}.home-page .manifesto{background:var(--paper);border-top:1px solid var(--line)}.home-page .works{background:var(--paper)}.home-page .look img{filter:none}.home-page .section-head h2{color:var(--ink)}.home-page .collection-link{border-color:var(--line)}
 .home-page .about{background:#111}.home-page .site-footer{background:#111;color:#f3f0e8}.home-page .footer-grid div>span{color:#777}
