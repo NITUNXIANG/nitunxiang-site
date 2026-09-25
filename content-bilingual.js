@@ -1,5 +1,5 @@
 (() => {
-  if(!document.querySelector('script[data-shared-language-notice]')){const script=document.createElement('script');script.src='language-notice.js?v=3';script.dataset.sharedLanguageNotice='';document.head.append(script);}
+  if(!document.querySelector('script[data-shared-language-notice]')){const script=document.createElement('script');script.src='language-notice.js?v=4';script.dataset.sharedLanguageNotice='';document.head.append(script);}
   const exact = new Map([
     ['All media / 08', '全部影像 / 08'], ['Still · Motion', '图片 · 动态影像'],
     ['Portrait format 03 × 04', '竖幅格式 03 × 04'], ['Shanghai · China', '上海 · 中国'],

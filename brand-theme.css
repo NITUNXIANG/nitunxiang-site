@@ -195,7 +195,9 @@ body,button,input,textarea,select{font-family:"DM Sans","NTX Source Han",Arial,s
   z-index:1;
   box-shadow:0 24px 72px rgba(0,0,0,.26);
   overflow:visible!important;
+  opacity:0;
 }
+.home-page .hero-media.is-ready{opacity:1}
 .home-page .hero-media>.carousel-slide{inset:-1px -2px!important;width:auto;height:auto;max-width:none;background-size:cover;background-position:center;background-repeat:no-repeat}
 .home-page .hero-shade{display:none}
 .home-page .hero-kicker{top:98px;left:var(--pad);color:var(--ink);font-size:8px;line-height:1.45}

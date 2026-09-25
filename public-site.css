@@ -7,14 +7,6 @@
 }
 
 @font-face {
-  font-family: "NTX Source Han Web";
-  src: url("assets/fonts/SourceHanSerifSC-Web.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Source Han Serif SC";
   src: url("assets/fonts/SourceHanSerifSC-Web.woff2") format("woff2");
   font-weight: 200 900;
@@ -36,17 +28,6 @@
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
-}
-
-/* 中文切换状态始终使用随网站发布的思源宋，覆盖旧内容中保存的行内字体。 */
-[data-bi-language="zh"],
-[data-language="zh"],
-[lang="zh-CN"],
-.nav-mobile-zh,
-.detail-category-link > span,
-.category-tab > span,
-.detail-category-result > span {
-  font-family: "NTX Source Han Web", serif !important;
 }
 
 .editor-launch,

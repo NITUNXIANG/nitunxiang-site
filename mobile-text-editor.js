@@ -14,7 +14,7 @@
   };
   const selector = selectors[page];
   if (!selector) return;
-  const fontMap = {sourcehan:'"NTX Source Han Web","NTX Source Han","Source Han Serif SC",serif',bigcaslon:'"NTX Big Caslon","Big Caslon Local","Times New Roman",serif',adobecaslon:'"Adobe Caslon Pro Local","Times New Roman",serif',sans:'"DM Sans",Arial,"PingFang SC",sans-serif'};
+  const fontMap = {sourcehan:'DetailHan,"NTX Source Han","Source Han Serif SC",serif',bigcaslon:'"NTX Big Caslon","Big Caslon Local","Times New Roman",serif',adobecaslon:'"Adobe Caslon Pro Local","Times New Roman",serif',sans:'"DM Sans",Arial,"PingFang SC",sans-serif'};
   const storageKey = page==='articles.html'?'nitunxiang-shared-text-v1:articles.html':`nitunxiang-${mobileViewport?'mobile':'desktop'}-text-v1:${page}`;
   if(page==='articles.html'){
     try{
