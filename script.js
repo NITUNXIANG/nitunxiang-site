@@ -582,7 +582,17 @@ document.querySelectorAll('.glaze-guide-card').forEach((card) => card.addEventLi
   document.querySelectorAll('.glaze-guide-card').forEach((item)=>item.dataset.clickStage='');
   const slides=[...card.querySelectorAll('.glaze-slide')];
   const active=Math.max(0,slides.findIndex((slide)=>slide.classList.contains('is-active')));
-  slides.forEach((slide,index)=>slide.classList.toggle('is-active',index===(active+1)%slides.length));
+  const next=(active+1)%slides.length;
+  if(matchMedia('(max-width:760px)').matches){
+    const leaving=slides[active];
+    const entering=slides[next];
+    leaving.classList.add('is-leaving');
+    leaving.classList.remove('is-active');
+    entering.classList.add('is-active');
+    setTimeout(()=>leaving.classList.remove('is-leaving'),520);
+  }else{
+    slides.forEach((slide,index)=>slide.classList.toggle('is-active',index===next));
+  }
   card.dataset.clickStage='image';
 }));
 document.querySelectorAll('.gene-grid figure').forEach((figure)=>figure.addEventListener('click',(event)=>{

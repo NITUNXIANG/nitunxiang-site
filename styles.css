@@ -122,9 +122,12 @@ html{scroll-snap-type:y proximity;scroll-padding-top:0}.home-page main>section{s
 .home-page .glaze-guide-card .glaze-slide{z-index:0;opacity:0;visibility:hidden;transition:opacity .48s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .home-page .glaze-guide-card .glaze-slide.is-active{opacity:1;visibility:visible}
 @media(max-width:760px){
-  .home-page .glaze-guide-card .glaze-slide{visibility:visible!important;z-index:0;transition:opacity .48s ease,transform .8s cubic-bezier(.2,.7,.2,1)!important;will-change:opacity,transform}
-  .home-page .glaze-guide-card .glaze-slide.is-active{z-index:1;visibility:visible!important}
+  .home-page .glaze-guide-card{isolation:isolate;background:#111}
+  .home-page .glaze-guide-card .glaze-slide{visibility:visible!important;z-index:0;opacity:0;transition:none!important;transform:translateZ(0)!important;backface-visibility:hidden;will-change:opacity}
+  .home-page .glaze-guide-card .glaze-slide.is-leaving{z-index:1;opacity:1!important}
+  .home-page .glaze-guide-card .glaze-slide.is-active{z-index:2;visibility:visible!important;animation:glaze-mobile-cover-in .48s ease both!important}
 }
+@keyframes glaze-mobile-cover-in{from{opacity:.01}to{opacity:1}}
 
 /* 第三屏可编辑背景图层。 */
 .home-page .manifesto{isolation:isolate;overflow:hidden;color:#fff;border:0}
