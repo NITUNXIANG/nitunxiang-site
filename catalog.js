@@ -31,7 +31,7 @@ const eryou = [
   {name:'全收藏套组 · 大号',price:6780,spec:'L 盖碗套组 × 1 + XS 杯 × 2 + 载游',group:true}
 ];
 
-const p = (id) => `assets/catalog/product-${id}.jpg`;
+const p = (id) => `assets/catalog/product-${id}.webp`;
 const series = [
   {name:'游牧之歌',en:'Nomadic Poem',key:'nomadic',images:[p(20),p(9),p(7),p(16),p(19),p(8),p(24),p(23),p(22),p(18),p(17),p(21),p(70),p(150),p(151),p(151),p(34),p(49),p(44),p(57),'assets/catalog/gift-nomadic-m.webp','assets/catalog/gift-nomadic-l.webp',p(160),p(161)]},
   {name:'食夜之日',en:'The Sun of Daybreak',key:'daybreak',images:[p(13),p(6),p(4),p(11),p(14),p(5),p(27),p(26),p(25),p(12),p(10),p(15),p(64),p(148),p(149),p(149),p(40),p(46),p(45),p(55),'assets/catalog/gift-daybreak-m.webp','assets/catalog/gift-daybreak-l.webp',p(157),p(158)]},
