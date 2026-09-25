@@ -123,10 +123,10 @@ html{scroll-snap-type:y proximity;scroll-padding-top:0}.home-page main>section{s
 .home-page .glaze-guide-card .glaze-slide.is-active{opacity:1;visibility:visible}
 @media(max-width:760px){
   .home-page .glaze-guide-card .glaze-slide{
-    visibility:visible!important;opacity:0;
-    z-index:0;transition:opacity .34s ease!important;transform:none!important;will-change:opacity;
+    visibility:hidden!important;opacity:0;
+    z-index:0;transition:opacity .3s ease,visibility 0s linear .3s!important;transform:none!important;will-change:opacity;
   }
-  .home-page .glaze-guide-card .glaze-slide.is-active{z-index:1;visibility:visible!important;opacity:1;transition:opacity .34s ease!important}
+  .home-page .glaze-guide-card .glaze-slide.is-active{z-index:1;visibility:visible!important;opacity:1;transition:opacity .3s ease,visibility 0s linear 0s!important}
 }
 
 /* 第三屏可编辑背景图层。 */

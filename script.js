@@ -559,7 +559,15 @@ function syncManifestoCropControls(){
   manifestoBackgroundImage.style.setProperty(property,format(Number(event.target.value)));
   editorStatus.textContent='第三屏图片裁切已调整，请点击保存修改';
 }));
-document.querySelectorAll('.glaze-guide-card').forEach((card) => card.addEventListener('click', async (event) => {
+document.querySelectorAll('.glaze-slide').forEach((slide)=>{
+  if(!(slide instanceof HTMLImageElement))return;
+  slide.loading='eager';
+  slide.decoding='sync';
+  const preload=new Image();
+  preload.src=slide.currentSrc||slide.src;
+  preload.decode?.().catch(()=>{});
+});
+document.querySelectorAll('.glaze-guide-card').forEach((card) => card.addEventListener('click', (event) => {
   if(event.target.closest('[data-glaze-editable]'))return;
   if(editMode.checked){
     event.preventDefault();
@@ -574,17 +582,7 @@ document.querySelectorAll('.glaze-guide-card').forEach((card) => card.addEventLi
   document.querySelectorAll('.glaze-guide-card').forEach((item)=>item.dataset.clickStage='');
   const slides=[...card.querySelectorAll('.glaze-slide')];
   const active=Math.max(0,slides.findIndex((slide)=>slide.classList.contains('is-active')));
-  const nextIndex=(active+1)%slides.length;
-  const nextSlide=slides[nextIndex];
-  if(card.dataset.imageSwitching==='true')return;
-  card.dataset.imageSwitching='true';
-  try{
-    if(nextSlide instanceof HTMLImageElement&&!nextSlide.complete)await new Promise((resolve)=>{nextSlide.addEventListener('load',resolve,{once:true});nextSlide.addEventListener('error',resolve,{once:true});});
-    if(nextSlide instanceof HTMLImageElement&&nextSlide.decode)await nextSlide.decode().catch(()=>{});
-    slides.forEach((slide,index)=>slide.classList.toggle('is-active',index===nextIndex));
-  }finally{
-    card.dataset.imageSwitching='false';
-  }
+  slides.forEach((slide,index)=>slide.classList.toggle('is-active',index===(active+1)%slides.length));
   card.dataset.clickStage='image';
 }));
 document.querySelectorAll('.gene-grid figure').forEach((figure)=>figure.addEventListener('click',(event)=>{
