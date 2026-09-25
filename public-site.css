@@ -7,6 +7,14 @@
 }
 
 @font-face {
+  font-family: "NTX Source Han Web";
+  src: url("assets/fonts/SourceHanSerifSC-Web.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Source Han Serif SC";
   src: url("assets/fonts/SourceHanSerifSC-Web.woff2") format("woff2");
   font-weight: 200 900;
@@ -37,9 +45,8 @@
 .nav-mobile-zh,
 .detail-category-link > span,
 .category-tab > span,
-.detail-category-result > span,
-.detail-guide-modes {
-  font-family: "NTX Source Han", "Source Han Serif SC", serif !important;
+.detail-category-result > span {
+  font-family: "NTX Source Han Web", serif !important;
 }
 
 .editor-launch,

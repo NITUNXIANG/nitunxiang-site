@@ -2,7 +2,7 @@
   const nodes=[...document.querySelectorAll('[data-article-editable]')];if(!nodes.length)return;
   const slug=new URLSearchParams(location.search).get('article')||'objects';
   const storageKey='nitunxiang-article-detail-editor-v1:'+slug;
-  const fonts={bigcaslon:'DetailCaslon, "NTX Big Caslon", serif',sourcehan:'DetailHan, "NTX Source Han", serif',sans:'"DM Sans", Arial, sans-serif'};
+  const fonts={bigcaslon:'DetailCaslon, "NTX Big Caslon", serif',sourcehan:'"NTX Source Han Web", DetailHan, serif',sans:'"DM Sans", Arial, sans-serif'};
   let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey))||{}}catch(_){}
   const leftMigrationKey=storageKey+':main-left-v1';if(!localStorage.getItem(leftMigrationKey)){['title','summary'].forEach((key)=>{if(!saved[key]?.styles)return;Object.values(saved[key].styles).forEach((style)=>{style.align='left'})});localStorage.setItem(storageKey,JSON.stringify(saved));localStorage.setItem(leftMigrationKey,'1')}
   let selected=null;

@@ -458,7 +458,7 @@ document.querySelectorAll('[data-editable],[data-glaze-editable],[data-gene-edit
 document.querySelectorAll('[data-editable],[data-glaze-editable],[data-gene-editable]').forEach((node)=>node.addEventListener('input',()=>{const pair=hoverPairFor(node);if(pair?.isChinese)pair.translation=node.innerText.replace(/\r/g,'');}));
 editMode?.addEventListener('change', () => { document.body.classList.toggle('editing-active', editMode.checked); document.querySelectorAll('[data-editable],[data-glaze-editable],[data-gene-editable],[data-notice-editable]').forEach((node) => { node.contentEditable = editMode.checked ? 'true' : 'false'; }); editorStatus.textContent = editMode.checked ? '请点击要修改的文字或图片' : '直接编辑已关闭'; });
 
-const fontFamily = (value) => ({ serif: '"Instrument Serif", Georgia, serif', sourcehan: '"NTX Source Han", "Songti SC", serif', bigcaslon: '"NTX Big Caslon", "Times New Roman", serif', adobecaslon: '"Adobe Caslon Pro Local", "Times New Roman", serif', sans: '"DM Sans", Arial, sans-serif', system: '"PingFang SC", "Microsoft YaHei", sans-serif' }[value]);
+const fontFamily = (value) => ({ serif: '"Instrument Serif", Georgia, serif', sourcehan: '"NTX Source Han Web", "NTX Source Han", serif', bigcaslon: '"NTX Big Caslon", "Times New Roman", serif', adobecaslon: '"Adobe Caslon Pro Local", "Times New Roman", serif', sans: '"DM Sans", Arial, sans-serif', system: '"PingFang SC", "Microsoft YaHei", sans-serif' }[value]);
 document.querySelectorAll('[data-notice-font]').forEach((select)=>select.addEventListener('change',()=>{
   const language=select.dataset.noticeFont,node=document.querySelector(`[data-notice-editable="${language}"]`);
   if(!node)return;
