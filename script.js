@@ -26,6 +26,13 @@ const imagePool = [
   'assets/products/sku-07.webp',
   'assets/products/sku-08.webp'
 ];
+const heroInitialImages = [
+  'assets/published-data/e327979d9a9935866da41174.jpg',
+  'assets/published-data/25cbab9cf5f6f1eff2e40772.jpg',
+  'assets/published-data/802121d9fbef0790f2a7ed09.jpg',
+  'assets/published-data/b494d34d4d6288cea672aa2d.jpg',
+  'assets/published-data/a8c37bd9ffc0089dab773f34.jpg'
+];
 const carousels = [];
 const aboutIndexNode=document.querySelector('.about-index');
 function updateAboutIndexContrast(source){
@@ -84,7 +91,7 @@ function createCarousel(host, sources, type = 'img', limit = 5) {
   item.dots.forEach((dot, i) => dot.addEventListener('click', (event) => { event.stopPropagation(); item.show(i); }));if(host.classList.contains('about-image'))updateAboutIndexContrast(sources[0]);carousels.push(item); return item;
 }
 const heroCarouselHost=document.querySelector('.hero-media');
-createCarousel(heroCarouselHost, [imagePool[0], imagePool[2], imagePool[3], imagePool[6], imagePool[7]], 'background');
+createCarousel(heroCarouselHost, heroInitialImages, 'background');
 if(heroCarouselHost){
   const openHeroArticle=()=>{if(!document.body.classList.contains('editing-active'))location.href='article-detail.html?article=objects';};
   heroCarouselHost.setAttribute('tabindex','0');
