@@ -3,6 +3,10 @@
   const data=window.NTX_ARTICLES?.get(key)||{};
   const activeCategory=data.category||'nitunxiang';
   document.querySelector('[data-detail-category="'+activeCategory+'"]')?.classList.add('is-active');
+  const categoryResults=document.querySelector('[data-detail-category-results]');
+  let expandedCategory='';
+  const renderCategoryResults=(category)=>{if(!categoryResults)return;const entries=Object.entries(window.NTX_ARTICLES?.all?.()||{}).filter(([,article])=>(article.category||'nitunxiang')===category);categoryResults.innerHTML=entries.map(([slug,article],index)=>`<a class="detail-category-result" href="article-detail.html?article=${encodeURIComponent(slug)}"><span>${article.title?.[1]||article.title?.[0]||''}</span><i>${article.title?.[0]||''}</i><b>${String(index+1).padStart(2,'0')}</b></a>`).join('');categoryResults.hidden=!entries.length};
+  document.querySelectorAll('[data-detail-category]').forEach((link)=>link.addEventListener('click',(event)=>{event.preventDefault();const category=link.dataset.detailCategory;if(expandedCategory===category){expandedCategory='';categoryResults.hidden=true;link.setAttribute('aria-expanded','false');return}expandedCategory=category;document.querySelectorAll('[data-detail-category]').forEach((item)=>item.setAttribute('aria-expanded',String(item===link)));renderCategoryResults(category)}));
   const bi=(selector,value)=>{if(!value)return;const el=document.querySelector(selector);if(!el)return;el.dataset.biEn=value[0];el.dataset.biZh=value[1];el.innerHTML=value[0]};
   bi('[data-article-title]',data.title);bi('[data-article-category]',data.categoryLabel);bi('[data-article-type]',data.type);bi('[data-article-dek]',data.dek);bi('[data-article-quote]',data.quote);
   const articleDate=document.querySelector('[data-article-date]');if(articleDate)articleDate.textContent=data.date;
@@ -51,6 +55,7 @@
     const latest=window.NTX_ARTICLES?.get(key)||{};
     if(latest.images?.length){slides.forEach((slide,index)=>{slide.src=latest.images[index]||latest.images[0]});show(0)}
     revealGallery();
+    if(expandedCategory)renderCategoryResults(expandedCategory);
   }).catch(revealGallery);
   setInterval(()=>{if(!pendingImage&&!document.hidden)show(current+1,true)},3800);
   const customCursor=document.querySelector('.ntx-custom-cursor');
