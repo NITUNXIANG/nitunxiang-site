@@ -132,3 +132,7 @@
 @media(min-width:761px){body[data-gene-group="0"] .gene-gallery-title>.gene-page-meta{transform:translateY(-11px)}body[data-gene-group="0"] .gene-gallery-title>.gene-page-meta-next{align-items:flex-start}body[data-gene-group="0"] .gene-gallery-title>.gene-page-meta-next .gene-page-arrow{top:-1.33px}}
 @media(min-width:761px){body[data-gene-group="1"] .gene-gallery-title>.gene-page-meta-prev{align-items:flex-start}body[data-gene-group="1"] .gene-gallery-title>.gene-page-meta-prev .gene-page-arrow{top:-1.33px}}
 
+/* Final bilingual introduction standard shared by both GENE pages. */
+.gene-gallery-description{align-items:center!important;justify-content:center!important}.gene-gallery-description p[data-language="zh"]{font-family:"NTX Source Han","Source Han Serif SC","Noto Serif CJK SC","Songti SC",serif!important;text-align:center!important}.gene-gallery-description p[data-language="en"]{font-family:"NTX Big Caslon","Big Caslon",Georgia,serif!important;text-align:center!important}
+@media(max-width:760px){.gene-gallery-description:has(p[data-language="zh"]){align-items:center!important}.gene-gallery-description p[data-language="zh"],.gene-gallery-description p[data-language="en"]{width:100%!important;margin:0!important;padding:0!important;text-align:center!important}}
+
