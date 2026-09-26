@@ -136,3 +136,9 @@
 .gene-gallery-description{align-items:center!important;justify-content:center!important}.gene-gallery-description p[data-language="zh"]{font-family:"NTX Source Han","Source Han Serif SC","Noto Serif CJK SC","Songti SC",serif!important;text-align:center!important}.gene-gallery-description p[data-language="en"]{font-family:"NTX Big Caslon","Big Caslon",Georgia,serif!important;text-align:center!important}
 @media(max-width:760px){.gene-gallery-description:has(p[data-language="zh"]){align-items:center!important}.gene-gallery-description p[data-language="zh"],.gene-gallery-description p[data-language="en"]{width:100%!important;margin:0!important;padding:0!important;text-align:center!important}}
 
+/* Desktop GENE title standard: English 100px, Chinese weight 600. */
+@media(min-width:761px){
+  .gene-gallery-title h1[data-language="en"]{font-size:100px!important}
+  .gene-gallery-title h1[data-language="zh"]{font-weight:600!important}
+}
+
