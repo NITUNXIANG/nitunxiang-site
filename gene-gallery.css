@@ -144,3 +144,5 @@
   .gene-gallery-title>.gene-page-meta .gene-page-arrow{top:-1px!important;display:inline-flex;align-items:center;justify-content:center;height:1em;line-height:1}
 }
 
+@media(max-width:760px){.gene-gallery-title h1[data-language="en"]{font-size:50px!important}}
+
