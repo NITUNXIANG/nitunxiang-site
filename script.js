@@ -33,6 +33,24 @@ const heroInitialImages = [
   'assets/published-data/b494d34d4d6288cea672aa2d.jpg',
   'assets/published-data/a8c37bd9ffc0089dab773f34.jpg'
 ];
+const savedLookImages = [
+  ['assets/products/sku-01.webp','assets/products/sku-03.webp','assets/products/sku-04.webp','assets/products/sku-05.webp','assets/products/sku-06.webp'],
+  ['assets/products/sku-04.webp','assets/products/sku-05.webp','assets/products/sku-06.webp','assets/products/sku-07.webp','assets/products/sku-08.webp'],
+  ['assets/products/sku-07.webp','assets/products/sku-07.webp','assets/products/sku-08.webp','assets/products/sku-01.webp','assets/products/sku-02.webp'],
+  ['assets/products/sku-09.webp','assets/products/sku-01.webp','assets/products/sku-02.webp','assets/products/sku-03.webp','assets/products/sku-04.webp']
+];
+const savedAboutImages = [
+  'assets/published-data/65915db832b3622338fa61cc.webp',
+  'assets/published-data/ab5d4202803a92bde60065f2.webp',
+  'assets/published-data/143e5d75f414756e4762dce3.webp'
+];
+const savedManifestoImages = [
+  'assets/published-data/991caff2139e4011b4ef90cd.webp','assets/published-data/57121ec11bbf02a819051867.webp',
+  'assets/published-data/c895236623a12c91461d290b.webp','assets/published-data/01baf9d00260eff7267a1cf3.webp',
+  'assets/published-data/badae952a2d855d8131cb2e0.webp','assets/published-data/a069ac18924e2e1858339b93.webp',
+  'assets/published-data/962c4615107bbb6427801085.webp','assets/published-data/7d30ee3ae0e8ad398ad325ea.webp',
+  'assets/published-data/49a80ad49166cda487f4d681.webp','assets/published-data/f2fc12ffc793a672cceda052.webp'
+];
 const carousels = [];
 const aboutIndexNode=document.querySelector('.about-index');
 function updateAboutIndexContrast(source){
@@ -100,13 +118,12 @@ if(heroCarouselHost){
   heroCarouselHost.addEventListener('click',(event)=>{if(event.target.closest('.carousel-dots'))return;openHeroArticle();});
   heroCarouselHost.addEventListener('keydown',(event)=>{if(event.key==='Enter'){event.preventDefault();openHeroArticle();}});
 }
-document.querySelectorAll('.look').forEach((look, index) => { const first = look.querySelector('img')?.src || imagePool[index + 1]; createCarousel(look, [first, ...Array.from({ length: 4 }, (_, i) => imagePool[(index * 2 + i + 2) % imagePool.length])]); });
+document.querySelectorAll('.look').forEach((look, index) => createCarousel(look, savedLookImages[index]||savedLookImages[0]));
 const aboutImageHost=document.querySelector('.about-image');
-const aboutCarousel=aboutImageHost?createCarousel(aboutImageHost,[imagePool[5],imagePool[7],imagePool[1]],'background',3):null;
+const aboutCarousel=aboutImageHost?createCarousel(aboutImageHost,savedAboutImages,'background',3):null;
 const manifestoCarouselHost=document.querySelector('[data-manifesto-image]');
-const manifestoSeed=manifestoCarouselHost?.querySelector('img')?.getAttribute('src')||imagePool[0];
 manifestoCarouselHost?.querySelector('img')?.remove();
-const manifestoCarousel=manifestoCarouselHost?createCarousel(manifestoCarouselHost,[manifestoSeed,imagePool[1],imagePool[2],imagePool[3],imagePool[4],imagePool[5],imagePool[6],imagePool[7],'assets/catalog/product-20.webp','assets/catalog/product-13.webp'],'img',10):null;
+const manifestoCarousel=manifestoCarouselHost?createCarousel(manifestoCarouselHost,savedManifestoImages,'img',10):null;
 if(manifestoCarouselHost&&manifestoCarousel){
   let swipeStart=null;
   const swipeSurface=document.querySelector('.manifesto')||manifestoCarouselHost;
