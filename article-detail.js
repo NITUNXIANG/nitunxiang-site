@@ -17,7 +17,8 @@
     event.preventDefault();
     if(link.classList.contains('is-activating'))return;
     link.classList.add('is-activating');
-    setTimeout(()=>{location.href=link.href},380);
+    link.setAttribute('aria-current','true');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(()=>{location.assign(link.href)},420)));
   });
   const bi=(selector,value)=>{if(!value)return;const el=document.querySelector(selector);if(!el)return;el.dataset.biEn=value[0];el.dataset.biZh=value[1];el.innerHTML=value[0]};
   bi('[data-article-title]',data.title);bi('[data-article-category]',data.categoryLabel);bi('[data-article-type]',data.type);bi('[data-article-dek]',data.dek);bi('[data-article-quote]',data.quote);
