@@ -17,7 +17,7 @@ document.querySelectorAll('[data-gene-toggle]').forEach((button)=>button.addEven
 }));
 
 const imagePool = [
-  'assets/published-data/e327979d9a9935866da41174.jpg',
+  'assets/published-data/e327979d9a9935866da41174.webp',
   'assets/products/sku-02.webp',
   'assets/products/sku-03.webp',
   'assets/products/sku-04.webp',
@@ -27,7 +27,7 @@ const imagePool = [
   'assets/products/sku-08.webp'
 ];
 const heroInitialImages = [
-  'assets/published-data/e327979d9a9935866da41174.jpg',
+  'assets/published-data/e327979d9a9935866da41174.webp',
   'assets/published-data/25cbab9cf5f6f1eff2e40772.jpg',
   'assets/published-data/802121d9fbef0790f2a7ed09.jpg',
   'assets/published-data/b494d34d4d6288cea672aa2d.jpg',
@@ -732,7 +732,18 @@ if(manifestoCopyForAlignment){
   window.addEventListener('resize',syncManifestoEyebrowTop);
 }
 const revealHomeWhenReady=()=>new Promise((resolve)=>{const active=heroCarouselHost?.querySelector('.carousel-slide.is-active'),source=active?.style.backgroundImage.match(/^url\(["']?(.*?)["']?\)$/i)?.[1],finish=()=>{heroCarouselHost?.classList.add('is-ready');resolve()};if(!source){finish();return}const image=new Image();image.onload=finish;image.onerror=finish;image.src=source;if(image.complete&&image.naturalWidth)finish();setTimeout(finish,4000)});
-loadInitialState().finally(async() => { window.syncHomeArticle?.();syncManifestoEyebrowTop();await Promise.all([revealHomeWhenReady(),document.fonts?.ready||Promise.resolve()]);document.querySelectorAll('.hero .reveal').forEach((node)=>node.classList.add('is-visible'));const finishBoot=()=>{document.documentElement.scrollTop=0;document.body.scrollTop=0;scrollTo(0,0);document.documentElement.classList.remove('state-loading');requestAnimationFrame(()=>{scrollTo(0,0);requestAnimationFrame(()=>scrollTo(0,0))});setTimeout(()=>scrollTo(0,0),120)};finishBoot(); });
+loadInitialState().finally(() => {
+  window.syncHomeArticle?.();
+  syncManifestoEyebrowTop();
+  document.querySelectorAll('.hero .reveal').forEach((node)=>node.classList.add('is-visible'));
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
+  scrollTo(0,0);
+  document.documentElement.classList.remove('state-loading');
+  revealHomeWhenReady();
+  requestAnimationFrame(()=>{scrollTo(0,0);requestAnimationFrame(()=>scrollTo(0,0))});
+  setTimeout(()=>scrollTo(0,0),120);
+});
 
 document.querySelector('form')?.addEventListener('submit', (event) => { event.preventDefault(); const input = event.currentTarget.querySelector('input'); if (input?.value) { input.value = ''; input.placeholder = 'THANK YOU — SUBSCRIBED'; } });
 if(!document.querySelector('script[data-shared-language-notice]')){const sharedNoticeScript=document.createElement('script');sharedNoticeScript.src='language-notice.js?v=1';sharedNoticeScript.dataset.sharedLanguageNotice='';document.head.append(sharedNoticeScript);}
