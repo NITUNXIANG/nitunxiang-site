@@ -20,6 +20,8 @@
     link.setAttribute('aria-current','true');
     requestAnimationFrame(()=>requestAnimationFrame(()=>setTimeout(()=>{location.assign(link.href)},420)));
   });
+  const articlesReturn=document.querySelector('.detail-articles-link');
+  articlesReturn?.addEventListener('click',(event)=>{if(!matchMedia('(max-width:850px)').matches||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();if(articlesReturn.classList.contains('is-activating'))return;articlesReturn.classList.add('is-activating');setTimeout(()=>location.assign(articlesReturn.href),230)});
   const bi=(selector,value)=>{if(!value)return;const el=document.querySelector(selector);if(!el)return;el.dataset.biEn=value[0];el.dataset.biZh=value[1];el.innerHTML=value[0]};
   bi('[data-article-title]',data.title);bi('[data-article-category]',data.categoryLabel);bi('[data-article-type]',data.type);bi('[data-article-dek]',data.dek);bi('[data-article-quote]',data.quote);
   const articleDate=document.querySelector('[data-article-date]');if(articleDate)articleDate.textContent=data.date;
