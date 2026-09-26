@@ -140,5 +140,7 @@
 @media(min-width:761px){
   .gene-gallery-title h1[data-language="en"]{font-size:100px!important}
   .gene-gallery-title h1[data-language="zh"]{font-weight:600!important}
+  .gene-gallery-title>.gene-page-meta-prev,.gene-gallery-title>.gene-page-meta-next{align-items:center!important}
+  .gene-gallery-title>.gene-page-meta .gene-page-arrow{top:0!important;display:inline-flex;align-items:center;justify-content:center;height:1em;line-height:1}
 }
 
