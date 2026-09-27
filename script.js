@@ -215,7 +215,19 @@ document.querySelectorAll('[data-sculpture-segment]').forEach((segment,index) =>
 let sculptureResizeTimer;
 window.addEventListener('resize',()=>{clearTimeout(sculptureResizeTimer);sculptureResizeTimer=setTimeout(()=>document.querySelectorAll('[data-sculpture-segment] img').forEach(fitSculptureObject),100);});
 
-/* 手机端柔和磁吸：只在区块上沿已经非常靠近页面上沿时接住。 */
+/* 首页各屏统一吸附到语言切换条下沿；关闭提示条后吸附到品牌导航下沿。 */
+const snapLanguageNotice=document.querySelector('[data-language-notice]');
+const snapSiteHeader=document.querySelector('.site-header');
+const homeSnapAnchorBottom=()=>{
+  const noticeVisible=snapLanguageNotice&&!snapLanguageNotice.hidden&&!snapLanguageNotice.classList.contains('is-closed')&&getComputedStyle(snapLanguageNotice).display!=='none';
+  if(noticeVisible)return snapLanguageNotice.getBoundingClientRect().bottom;
+  return snapSiteHeader?.getBoundingClientRect().bottom||(window.matchMedia('(max-width:760px)').matches?64:76);
+};
+const updateHomeSnapOffset=()=>document.documentElement.style.setProperty('--home-snap-offset',`${Math.max(0,homeSnapAnchorBottom())}px`);
+updateHomeSnapOffset();
+window.addEventListener('resize',updateHomeSnapOffset);
+
+/* 手机端柔和磁吸：只在区块上沿已经非常靠近目标下沿时接住。 */
 if(window.matchMedia('(max-width:760px)').matches){
   let softSnapTimer=null,softSnapping=false;
   window.addEventListener('scroll',()=>{
@@ -223,40 +235,15 @@ if(window.matchMedia('(max-width:760px)').matches){
     clearTimeout(softSnapTimer);
     softSnapTimer=window.setTimeout(()=>{
       const sections=[...document.querySelectorAll('.home-page main>section')];
-      const nearest=sections.map((section)=>({section,distance:Math.abs(section.getBoundingClientRect().top)})).sort((a,b)=>a.distance-b.distance)[0];
+      const anchor=homeSnapAnchorBottom();
+      const nearest=sections.map((section)=>({section,distance:Math.abs(section.getBoundingClientRect().top-anchor)})).sort((a,b)=>a.distance-b.distance)[0];
       if(!nearest||nearest.distance>56)return;
-      const top=window.scrollY+nearest.section.getBoundingClientRect().top;
+      const top=window.scrollY+nearest.section.getBoundingClientRect().top-anchor;
       if(Math.abs(window.scrollY-top)<2)return;
       softSnapping=true;
       window.scrollTo({top,behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
       window.setTimeout(()=>{softSnapping=false;},420);
     },150);
-  },{passive:true});
-}
-
-/* 电脑端哲学区轻吸附：接近语言切换条下沿并停止滚动后才柔和对齐。 */
-if(window.matchMedia('(min-width:761px)').matches&&document.body.classList.contains('home-page')){
-  const philosophySection=document.querySelector('.about');
-  const languageNotice=document.querySelector('[data-language-notice]');
-  const siteHeader=document.querySelector('.site-header');
-  let philosophySnapTimer=null,philosophySnapping=false;
-  const philosophyAnchorBottom=()=>{
-    if(languageNotice&&getComputedStyle(languageNotice).display!=='none')return languageNotice.getBoundingClientRect().bottom;
-    return siteHeader?siteHeader.getBoundingClientRect().bottom:76;
-  };
-  window.addEventListener('scroll',()=>{
-    if(!philosophySection||philosophySnapping||document.body.classList.contains('editing-active'))return;
-    clearTimeout(philosophySnapTimer);
-    philosophySnapTimer=window.setTimeout(()=>{
-      const delta=philosophySection.getBoundingClientRect().top-philosophyAnchorBottom();
-      if(Math.abs(delta)>48||Math.abs(delta)<1.5)return;
-      philosophySnapping=true;
-      window.scrollTo({
-        top:window.scrollY+delta,
-        behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'
-      });
-      window.setTimeout(()=>{philosophySnapping=false;},360);
-    },130);
   },{passive:true});
 }
 
@@ -446,6 +433,7 @@ document.querySelector('[data-language-switch]')?.addEventListener('click',()=>{
 document.querySelector('[data-language-notice-close]')?.addEventListener('click',()=>{
   languageNotice?.classList.add('is-closed');
   document.body.classList.add('language-notice-closed');
+  updateHomeSnapOffset();
   window.setTimeout(()=>languageNotice?.setAttribute('hidden',''),300);
 });
 hoverTranslationInput?.addEventListener('input', () => {
