@@ -47,7 +47,8 @@
 
 /* 页面磁吸：每个大区块的上沿自动停在固定品牌导航下方。 */
 html{scroll-snap-type:y proximity;scroll-padding-top:var(--home-snap-offset,101px)}.home-page main>section{scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:0}
-@media(max-width:760px){html{scroll-snap-type:none}.home-page main>section{scroll-snap-align:none;scroll-snap-stop:normal}}
+.home-page main>#glazes,.home-page main>#manifesto{scroll-margin-top:calc(-1 * var(--home-snap-offset,101px))}
+@media(max-width:760px){html{scroll-snap-type:none}.home-page main>section,.home-page main>#glazes,.home-page main>#manifesto{scroll-snap-align:none;scroll-snap-stop:normal;scroll-margin-top:0}}
 
 /* 固定导航覆盖页面时，为文字型区块增加一点上方呼吸空间。 */
 .home-page .glaze-guide{padding-top:clamp(108px,12vh,142px)}.home-page .manifesto{padding-top:114px}.home-page .works{padding-top:114px}.home-page .journal{padding-top:144px}@media(max-width:760px){.home-page .glaze-guide{padding-top:100px}.home-page .manifesto{padding-top:102px}.home-page .works{padding-top:102px}.home-page .journal{padding-top:108px}}

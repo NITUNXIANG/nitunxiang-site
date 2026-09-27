@@ -235,10 +235,12 @@ if(window.matchMedia('(max-width:760px)').matches){
     clearTimeout(softSnapTimer);
     softSnapTimer=window.setTimeout(()=>{
       const sections=[...document.querySelectorAll('.home-page main>section')];
-      const anchor=homeSnapAnchorBottom();
-      const nearest=sections.map((section)=>({section,distance:Math.abs(section.getBoundingClientRect().top-anchor)})).sort((a,b)=>a.distance-b.distance)[0];
+      const nearest=sections.map((section)=>{
+        const anchor=section.matches('#glazes,#manifesto')?0:homeSnapAnchorBottom();
+        return {section,anchor,distance:Math.abs(section.getBoundingClientRect().top-anchor)};
+      }).sort((a,b)=>a.distance-b.distance)[0];
       if(!nearest||nearest.distance>56)return;
-      const top=window.scrollY+nearest.section.getBoundingClientRect().top-anchor;
+      const top=window.scrollY+nearest.section.getBoundingClientRect().top-nearest.anchor;
       if(Math.abs(window.scrollY-top)<2)return;
       softSnapping=true;
       window.scrollTo({top,behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
